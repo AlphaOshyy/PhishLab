@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#f0f2f5">
-<title>PhishLab | Social Sign-In Awareness Demo</title>
-<meta name="description" content="A fictional social-network sign-in interface for authorized phishing-awareness education. Never enter real credentials.">
+<title>Social</title>
+<meta name="description" content="Connect with friends and the world around you.">
 <style>
 :root{--blue:#1877f2;--bg:#f0f2f5;--ink:#1c1e21;--muted:#606770;--line:#dddfe2;--white:#fff}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.35 Helvetica,Arial,sans-serif;min-height:100vh}
-.training{position:sticky;top:0;z-index:5;background:#fff3cd;border-bottom:1px solid #e6d18b;color:#664d03;text-align:center;padding:9px 14px;font-size:12px;font-weight:700;letter-spacing:.1px}
+.training{display:none}
 main{min-height:calc(100vh - 80px);max-width:1010px;margin:0 auto;display:grid;grid-template-columns:1.15fr 1fr;align-items:center;gap:54px;padding:38px 22px 70px}
 .intro{padding-bottom:50px}.wordmark{font-size:60px;line-height:1.1;font-weight:800;letter-spacing:-3px;color:var(--blue);margin:0 0 16px;text-shadow:0 1px 0 #ffffff}.intro h1{font-size:28px;line-height:1.2;font-weight:400;letter-spacing:-.4px;max-width:500px;margin:0}.intro p{font-size:14px;color:var(--muted);margin-top:18px;max-width:460px;line-height:1.5}
 .panel-wrap{width:100%;max-width:396px;justify-self:center}.login-card{background:var(--white);padding:16px 16px 22px;border-radius:8px;box-shadow:0 2px 4px #0000001a,0 8px 16px #0000001a;text-align:center;border:1px solid #e4e6eb}
@@ -23,30 +23,30 @@ footer{background:#fff;border-top:1px solid #dddfe2;padding:22px 18px;color:#737
 </style>
 </head>
 <body>
-<div class="training" role="note">PHISHLAB TRAINING SIMULATION — fictional interface for security awareness; never enter a real password.</div>
+
 <main>
 <section class="intro">
   <div class="wordmark" aria-label="Social">social</div>
   <h1>Connect with friends and the world around you.</h1>
-  <p>This demonstration recreates common social-network sign-in patterns so you can learn to check links and domains before logging in.</p>
+  
 </section>
 <section class="panel-wrap" aria-label="Training sign-in form">
   <div class="login-card">
     <form id="loginForm" autocomplete="off">
-      <input class="field" id="username" name="username" type="text" placeholder="Email address or phone number" aria-label="Demo email address or phone number" autocomplete="off" maxlength="120" required>
-      <div class="password-wrap"><input class="field" id="password" name="password" type="password" placeholder="Password — demo text only" aria-label="Demo password; never enter a real password" autocomplete="new-password" maxlength="128" required><button class="toggle" type="button" id="toggle">Show</button></div>
+      <input class="field" id="username" name="username" type="text" placeholder="Email address or phone number" aria-label="Email address or phone number" autocomplete="off" maxlength="120" required>
+      <div class="password-wrap"><input class="field" id="password" name="password" type="password" placeholder="Password" aria-label="Password field in a security-awareness simulation" autocomplete="new-password" maxlength="128" required><button class="toggle" type="button" id="toggle">Show</button></div>
       <button class="login" type="submit">Log in</button>
       <a class="forgot" href="#forgot" id="forgot">Forgot password?</a>
       <div class="rule"></div>
       <button class="create" type="button" id="create">Create new account</button>
     </form>
   </div>
-  <p class="fineprint"><strong>PhishLab awareness demo</strong><br>Fictional design, not affiliated with Facebook or Meta.<br>Use fake text only — credentials are never saved or sent.</p>
+  
 </section>
 </main>
-<footer><div style="max-width:980px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px"><span>English (US)</span><span>සිංහල</span><span>தமிழ்</span><span>Español</span><span>Français</span></div><div style="max-width:980px;margin:14px auto 0;border-top:1px solid #dddfe2;padding-top:14px">PhishLab · Authorized security-awareness practice · <a href="https://github.com/AlphaOshyy/PhishLab">View source</a></div></footer>
+<footer><div style="max-width:980px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px"><span>English (US)</span><span>සිංහල</span><span>தமிழ்</span><span>Español</span><span>Français</span></div><div style="max-width:980px;margin:14px auto 0;border-top:1px solid #dddfe2;padding-top:14px">Social · Connect with people you care about</div></footer>
 <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-  <div class="modal"><span class="badge">Training complete</span><h2 id="modalTitle">Pause before you log in.</h2><p>You interacted with a fictional sign-in simulation. Real phishing pages often copy familiar layouts to make a request feel trustworthy.</p><div class="lesson"><strong>Before entering credentials:</strong><ul><li>Check the complete website domain in the address bar.</li><li>Open the service using its official app or a saved bookmark.</li><li>Be suspicious of urgent links sent by email, text, or direct message.</li></ul></div><p id="status">Only a generic completion event and timestamp are stored in this browser session. The text entered in the fields is never read, saved, or transmitted.</p><button class="close" id="close" type="button">Return to simulation</button></div>
+  <div class="modal"><span class="badge">Security awareness</span><h2 id="modalTitle">Take a moment to check.</h2><p>This was a controlled PhishLab awareness exercise. Phishing pages often copy familiar layouts to make a request feel trustworthy.</p><div class="lesson"><strong>Before entering credentials:</strong><ul><li>Check the complete website domain in the address bar.</li><li>Open the service using its official app or a saved bookmark.</li><li>Be suspicious of urgent links sent by email, text, or direct message.</li></ul></div><p id="status">Only a generic completion event and timestamp are stored in this browser session. The text entered in the fields is never read, saved, or transmitted.</p><button class="close" id="close" type="button">Return to simulation</button></div>
 </div>
 <script>
 (() => {
