@@ -3,50 +3,97 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#f0f2f5">
-<title>Social</title>
-<meta name="description" content="Connect with friends and the world around you.">
+<meta name="theme-color" content="#ffffff">
+<title>Social | Sign in</title>
+<meta name="description" content="A social network inspired security awareness exercise.">
 <style>
-:root{--blue:#1877f2;--bg:#f0f2f5;--ink:#1c1e21;--muted:#606770;--line:#dddfe2;--white:#fff}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.35 Helvetica,Arial,sans-serif;min-height:100vh}
-.training{display:none}
-main{min-height:calc(100vh - 80px);max-width:1010px;margin:0 auto;display:grid;grid-template-columns:1.15fr 1fr;align-items:center;gap:54px;padding:38px 22px 70px}
-.intro{padding-bottom:50px}.wordmark{font-size:60px;line-height:1.1;font-weight:800;letter-spacing:-3px;color:var(--blue);margin:0 0 16px;text-shadow:0 1px 0 #ffffff}.intro h1{font-size:28px;line-height:1.2;font-weight:400;letter-spacing:-.4px;max-width:500px;margin:0}.intro p{font-size:14px;color:var(--muted);margin-top:18px;max-width:460px;line-height:1.5}
-.panel-wrap{width:100%;max-width:396px;justify-self:center}.login-card{background:var(--white);padding:16px 16px 22px;border-radius:8px;box-shadow:0 2px 4px #0000001a,0 8px 16px #0000001a;text-align:center;border:1px solid #e4e6eb}
-.field{width:100%;height:52px;padding:14px 16px;border:1px solid var(--line);border-radius:6px;font:17px Helvetica,Arial,sans-serif;margin-bottom:12px;outline:none;color:var(--ink);background:#fff;transition:border-color .15s,box-shadow .15s}.field:focus{border-color:var(--blue);box-shadow:0 0 0 2px #e7f3ff}.field::placeholder{color:#90949c}
-.password-wrap{position:relative}.password-wrap .field{padding-right:70px}.toggle{position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:0;color:var(--blue);font-size:12px;font-weight:700;cursor:pointer}
-.login{display:block;width:100%;height:48px;border:0;border-radius:6px;background:var(--blue);color:white;padding:10px 16px;font-size:20px;font-weight:700;cursor:pointer;margin:2px 0 14px;transition:background .15s,transform .15s}.login:hover{background:#166fe5}.forgot{display:inline-block;color:var(--blue);text-decoration:none;font-size:14px;margin:1px 0 18px}.forgot:hover{text-decoration:underline}.rule{height:1px;background:var(--line);margin:0 0 18px}.create{display:inline-block;background:#42b72a;color:white;border:0;border-radius:6px;padding:13px 17px;font-size:16px;font-weight:700;cursor:pointer;transition:background .15s,transform .15s}.create:hover{background:#36a420}.fineprint{font-size:12px;color:var(--muted);text-align:center;margin-top:24px;line-height:1.5}.fineprint strong{color:var(--ink)}
-footer{background:#fff;border-top:1px solid #dddfe2;padding:22px 18px;color:#737373;font-size:12px;text-align:center}footer a{color:#606770}
-.overlay{position:fixed;inset:0;background:#1c1e21a6;display:none;align-items:center;justify-content:center;padding:18px;z-index:10}.overlay.show{display:flex}.modal{width:min(100%,470px);background:white;border-radius:10px;padding:26px;box-shadow:0 12px 40px #0003}.badge{display:inline-block;background:#e7f3ff;color:#0b57a4;border-radius:4px;padding:6px 9px;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.5px}.modal h2{font-size:24px;margin:15px 0 8px}.modal p{color:#606770;font-size:14px;line-height:1.6}.lesson{background:#f0f2f5;border-radius:7px;padding:14px 16px;margin:16px 0;font-size:13px;line-height:1.6}.lesson ul{margin:8px 0 0;padding-left:19px}.close{width:100%;border:0;border-radius:6px;background:var(--blue);color:white;padding:11px;font-weight:700;font-size:15px;cursor:pointer}
-@media(max-width:760px){main{grid-template-columns:1fr;gap:26px;max-width:430px;padding:36px 16px 45px;align-content:start}.intro{text-align:center;padding:0}.wordmark{font-size:48px;margin-bottom:12px}.intro h1{font-size:22px}.intro p{margin:12px auto 0}.panel-wrap{max-width:396px}.fineprint{margin-top:17px}footer{padding-bottom:25px}}
-@media(max-width:380px){.wordmark{font-size:42px}.intro h1{font-size:20px}.login-card{padding:14px 12px 19px}.field{font-size:16px;padding:13px}}
+:root{--blue:#0866ff;--ink:#111;--muted:#606770;--line:#dadde1}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#fff}
+body{min-height:100vh}
+.layout{min-height:100vh;display:grid;grid-template-columns:57.5% 42.5%}
+.visual{position:relative;min-height:100vh;overflow:hidden;border-right:2px solid #e3e5e8;background:#fff}
+.brand{position:absolute;top:48px;left:50px;width:72px;height:72px;border-radius:50%;background:var(--blue);display:grid;place-items:center;color:white;font-size:39px;font-weight:700;letter-spacing:-3px}
+.headline{position:absolute;left:42px;bottom:calc(50% - 285px);z-index:3;font-size:clamp(42px,4.1vw,76px);font-weight:750;line-height:1.04;letter-spacing:-2.8px;max-width:340px}
+.headline span{color:var(--blue)}
+.collage{position:absolute;width:min(57%,560px);height:610px;left:37%;top:50%;transform:translateY(-53%)}
+.photo{position:absolute;overflow:hidden;border-radius:22px;background:#e7f3ff;box-shadow:0 5px 18px #00000018;border:5px solid #fff}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.photo-main{width:53%;height:78%;right:8%;top:2%;transform:rotate(-1deg)}
+.photo-side{width:45%;height:39%;left:1%;top:20%;transform:rotate(-2deg)}
+.photo-bottom{width:42%;height:46%;left:12%;bottom:1%;transform:rotate(1deg);z-index:2}
+.photo-bottom img{object-position:center}
+.story-line{position:absolute;top:17px;left:18px;right:18px;height:4px;border-radius:5px;background:#ffffffb5;z-index:2}
+.story-line:before{content:"";display:block;width:45%;height:100%;background:#fff;border-radius:5px}
+.float{position:absolute;z-index:4;display:grid;place-items:center;box-shadow:0 4px 14px #00000018}
+.reaction{width:68px;height:68px;right:-1%;top:61%;border-radius:50%;background:#ff3568;color:white;font-size:36px}
+.time{top:13%;right:0;background:#6557e8;color:white;padding:12px 15px;border-radius:14px;font-size:16px}
+.avatar{width:135px;height:135px;right:26%;bottom:-3%;border:5px solid white;outline:4px solid var(--blue);border-radius:50%;overflow:hidden;background:#f8d9d4}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.shop{position:absolute;top:3px;left:12px;color:#fff;font-size:21px;text-shadow:0 1px 3px #0008}
+.login-side{display:flex;align-items:center;justify-content:center;padding:40px 7.8%}
+.login-content{width:100%;max-width:670px}
+.login-content h1{font-size:20px;font-weight:600;margin:0 0 28px 0}
+.card{width:100%;max-width:670px}
+.field{width:100%;height:74px;border:1px solid #d3d6da;border-radius:19px;padding:15px 20px;font-size:17px;margin-bottom:14px;outline:none;background:#fff;color:#1c1e21;transition:border .15s,box-shadow .15s}
+.field:focus{border-color:var(--blue);box-shadow:0 0 0 2px #e7f3ff}
+.field::placeholder{color:#68717d}
+.password-wrap{position:relative}
+.password-wrap .field{padding-right:76px}
+.toggle{position:absolute;right:17px;top:25px;border:0;background:transparent;color:var(--blue);font-weight:700;cursor:pointer}
+.login{width:100%;height:54px;border:0;border-radius:28px;background:#0866ff;color:white;font-size:18px;font-weight:700;cursor:pointer;margin:14px 0 28px}
+.login:hover{background:#075ce5}
+.forgot{display:block;text-align:center;text-decoration:none;color:#111;font-size:17px;margin-bottom:80px}
+.forgot:hover{text-decoration:underline}
+.create{display:block;width:100%;height:55px;border:1px solid var(--blue);border-radius:28px;background:white;color:var(--blue);font-size:18px;font-weight:600;cursor:pointer}
+.create:hover{background:#f5f9ff}
+.meta{display:flex;align-items:center;justify-content:center;gap:5px;margin-top:31px;font-size:18px;color:#27313a;font-weight:600}
+.meta-mark{font-size:25px;letter-spacing:-5px;color:var(--blue);font-weight:800;margin-right:4px}
+.overlay{position:fixed;inset:0;background:#10182899;display:none;align-items:center;justify-content:center;padding:18px;z-index:10}
+.overlay.show{display:flex}
+.modal{width:min(100%,470px);background:white;border-radius:14px;padding:27px;box-shadow:0 15px 50px #0003}
+.badge{display:inline-block;background:#e7f3ff;color:#0757c9;border-radius:5px;padding:7px 10px;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.5px}
+.modal h2{font-size:24px;margin:16px 0 8px}
+.modal p{color:#606770;font-size:14px;line-height:1.6}
+.lesson{background:#f0f2f5;border-radius:8px;padding:14px 17px;margin:16px 0;font-size:13px;line-height:1.65}
+.lesson ul{margin:8px 0 0;padding-left:19px}
+.close{width:100%;border:0;border-radius:24px;background:var(--blue);color:white;padding:13px;font-weight:700;font-size:15px;cursor:pointer}
+@media(max-width:1000px){.layout{grid-template-columns:1fr}.visual{min-height:430px;border-right:0;border-bottom:1px solid #e3e5e8}.brand{top:25px;left:25px;width:56px;height:56px;font-size:31px}.headline{left:25px;bottom:50px;font-size:clamp(38px,6vw,58px);max-width:280px}.collage{left:35%;width:62%;height:390px;top:49%}.photo-main{height:85%}.photo-side{top:17%}.photo-bottom{height:42%}.avatar{width:90px;height:90px}.reaction{width:53px;height:53px;font-size:28px}.time{font-size:13px;padding:9px 12px}.login-side{padding:44px 22px 50px}.login-content{max-width:500px}.forgot{margin-bottom:38px}}
+@media(max-width:560px){.visual{min-height:360px}.headline{font-size:39px;max-width:185px;left:20px;bottom:40px;letter-spacing:-1.5px}.collage{left:32%;width:67%;height:310px;top:47%}.photo{border-width:3px;border-radius:15px}.photo-main{width:58%;right:3%}.photo-side{width:49%;height:37%;left:0}.photo-bottom{width:48%;height:42%;left:5%}.brand{width:48px;height:48px;font-size:27px;top:20px;left:20px}.time{right:-1%;top:11%}.reaction{right:-2%;top:61%;width:43px;height:43px;font-size:23px}.avatar{width:72px;height:72px;right:18%}.login-side{padding:32px 18px 42px}.login-content h1{font-size:19px;margin-bottom:22px}.field{height:62px;font-size:16px;border-radius:15px;padding:13px 16px}.toggle{top:21px}.login{height:52px;font-size:17px;margin:10px 0 24px}.forgot{font-size:15px;margin-bottom:34px}.create{height:52px;font-size:16px}.meta{margin-top:25px}}
 </style>
 </head>
 <body>
-
-<main>
-<section class="intro">
-  <div class="wordmark" aria-label="Social">social</div>
-  <h1>Connect with friends and the world around you.</h1>
-  
-</section>
-<section class="panel-wrap" aria-label="Training sign-in form">
-  <div class="login-card">
-    <form id="loginForm" autocomplete="off">
-      <input class="field" id="username" name="username" type="text" placeholder="Email address or phone number" aria-label="Email address or phone number" autocomplete="off" maxlength="120" required>
-      <div class="password-wrap"><input class="field" id="password" name="password" type="password" placeholder="Password" aria-label="Password field in a security-awareness simulation" autocomplete="new-password" maxlength="128" required><button class="toggle" type="button" id="toggle">Show</button></div>
-      <button class="login" type="submit">Log in</button>
-      <a class="forgot" href="#forgot" id="forgot">Forgot password?</a>
-      <div class="rule"></div>
-      <button class="create" type="button" id="create">Create new account</button>
-    </form>
-  </div>
-  
-</section>
-</main>
-<footer><div style="max-width:980px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px"><span>English (US)</span><span>සිංහල</span><span>தமிழ்</span><span>Español</span><span>Français</span></div><div style="max-width:980px;margin:14px auto 0;border-top:1px solid #dddfe2;padding-top:14px">Social · Connect with people you care about</div></footer>
+<div class="layout">
+  <section class="visual" aria-label="Social network illustration">
+    <div class="brand" aria-label="Social logo">s</div>
+    <div class="headline">Explore<br>the<br>things<br><span>you love.</span></div>
+    <div class="collage" aria-hidden="true">
+      <div class="photo photo-main"><div class="story-line"></div><img src="https://images.unsplash.com/photo-152 skateboarding?auto=format&fit=crop&w=900&q=85" alt=""></div>
+      <div class="photo photo-side"><span class="shop">▣</span><img src="https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=700&q=85" alt=""></div>
+      <div class="photo photo-bottom"><img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=700&q=85" alt=""></div>
+      <div class="float time">◷ 16:45</div>
+      <div class="float reaction">♥</div>
+      <div class="avatar"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=85" alt=""></div>
+    </div>
+  </section>
+  <section class="login-side">
+    <div class="login-content">
+      <h1>Log in to Social</h1>
+      <div class="card">
+        <form id="loginForm" autocomplete="off">
+          <input class="field" id="username" name="username" type="text" placeholder="Email address or mobile number" aria-label="Email address or mobile number" autocomplete="off" maxlength="120" required>
+          <div class="password-wrap"><input class="field" id="password" name="password" type="password" placeholder="Password" aria-label="Password field in a security awareness exercise" autocomplete="new-password" maxlength="128" required><button class="toggle" type="button" id="toggle">Show</button></div>
+          <button class="login" type="submit">Log in</button>
+          <a class="forgot" href="#forgot" id="forgot">Forgotten password?</a>
+          <button class="create" type="button" id="create">Create new account</button>
+        </form>
+        <div class="meta"><span class="meta-mark">∞</span><span>Social Network</span></div>
+      </div>
+    </div>
+  </section>
+</div>
 <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-  <div class="modal"><span class="badge">Security awareness</span><h2 id="modalTitle">Take a moment to check.</h2><p>This was a controlled PhishLab awareness exercise. Phishing pages often copy familiar layouts to make a request feel trustworthy.</p><div class="lesson"><strong>Before entering credentials:</strong><ul><li>Check the complete website domain in the address bar.</li><li>Open the service using its official app or a saved bookmark.</li><li>Be suspicious of urgent links sent by email, text, or direct message.</li></ul></div><p id="status">Only a generic completion event and timestamp are stored in this browser session. The text entered in the fields is never read, saved, or transmitted.</p><button class="close" id="close" type="button">Return to simulation</button></div>
+  <div class="modal"><span class="badge">Security awareness</span><h2 id="modalTitle">Pause and check the page.</h2><p>This is a controlled PhishLab awareness exercise. Phishing pages often copy familiar layouts to make a request seem trustworthy.</p><div class="lesson"><strong>Before entering account details:</strong><ul><li>Check the full domain in the browser address bar.</li><li>Open services through their official app or a saved bookmark.</li><li>Be careful with sign-in links received by message or email.</li></ul></div><p id="status">Only a generic completion event and timestamp are stored in this browser session. Field contents are never read, saved, or transmitted.</p><button class="close" id="close" type="button">Return to exercise</button></div>
 </div>
 <script>
 (() => {
