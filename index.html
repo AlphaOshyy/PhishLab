@@ -3,96 +3,78 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#f7f8fc">
-<title>Loop Social | PhishLab Awareness Demo</title>
+<meta name="theme-color" content="#f0f2f5">
+<title>Social Login Simulation | PhishLab</title>
 <style>
-:root{--ink:#172033;--muted:#687386;--line:#e5e9f1;--blue:#3568e8;--blue2:#2456d7;--bg:#f7f8fc;--white:#fff;--pink:#f05c91;--shadow:0 24px 70px #17203312}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}
-.topbar{height:66px;background:#ffffffd9;backdrop-filter:blur(16px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 max(24px,calc((100vw - 1120px)/2));gap:18px}
-.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.7px;font-size:22px}.brandmark{height:34px;width:34px;border-radius:12px;background:linear-gradient(145deg,#4d8bff,#7457dc);display:grid;place-items:center;color:#fff;font-size:19px;box-shadow:0 5px 14px #3568e833}
-.topnote{font-size:12px;color:#53627a;background:#f0f4ff;border:1px solid #dfe7ff;padding:7px 11px;border-radius:999px;font-weight:650}
-main{max-width:1120px;margin:0 auto;padding:58px 24px 46px;display:grid;grid-template-columns:minmax(0,1fr) 420px;align-items:center;gap:76px;min-height:calc(100vh - 66px)}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;color:#3568e8;font-size:12px;text-transform:uppercase;letter-spacing:1.6px;font-weight:800}.dot{height:7px;width:7px;background:#42bb8c;border-radius:50%}
-h1{font-size:clamp(38px,4.5vw,59px);line-height:1.04;letter-spacing:-2.8px;margin:19px 0 18px;max-width:560px}h1 span{color:var(--blue)}.intro{font-size:17px;color:var(--muted);max-width:490px;line-height:1.75;margin:0}
-.social-proof{display:flex;gap:13px;align-items:center;margin-top:34px;color:#687386;font-size:13px}.avatars{display:flex;padding-left:3px}.avatar{width:31px;height:31px;border-radius:50%;border:3px solid var(--bg);margin-left:-5px;display:grid;place-items:center;color:#fff;font-size:11px;font-weight:800}.avatar:nth-child(1){background:#d47c61}.avatar:nth-child(2){background:#697bd6}.avatar:nth-child(3){background:#4da995}.avatar:nth-child(4){background:#d19a43}
-.feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:37px;max-width:490px}.feature{background:#fff;border:1px solid var(--line);border-radius:15px;padding:15px}.feature-icon{font-size:18px;margin-bottom:8px}.feature strong{display:block;font-size:13px}.feature small{display:block;color:var(--muted);font-size:12px;margin-top:3px}
-.login-wrap{width:100%;max-width:420px;justify-self:end}.login-card{background:var(--white);border:1px solid #e9ecf3;border-radius:23px;padding:31px;box-shadow:var(--shadow)}.card-brand{display:flex;align-items:center;gap:10px;margin-bottom:24px}.card-brand .brandmark{height:42px;width:42px;border-radius:14px}.card-brand strong{font-size:20px;letter-spacing:-.5px}.card-brand small{display:block;color:var(--muted);font-size:12px}
-h2{font-size:23px;letter-spacing:-.8px;margin:0 0 5px}.subhead{color:var(--muted);font-size:13px;margin:0 0 24px}
-label{display:block;font-size:12px;font-weight:750;margin-bottom:7px;color:#39445a}.field{margin-bottom:17px}.input-wrap{position:relative}.input{width:100%;border:1px solid #dfe4ee;background:#fbfcfe;border-radius:11px;padding:13px 14px;font:inherit;font-size:14px;color:var(--ink);outline:none;transition:border .18s,box-shadow .18s}.input:focus{border-color:#6489f2;box-shadow:0 0 0 4px #3568e817;background:#fff}.password-toggle{position:absolute;right:10px;top:50%;transform:translateY(-50%);border:0;background:transparent;color:#64718a;font-weight:700;font-size:12px;cursor:pointer;padding:6px}
-.row-between{display:flex;justify-content:space-between;align-items:center;margin:0 0 21px;font-size:12px}.remember{display:flex;align-items:center;gap:7px;color:#657086}.remember input{accent-color:var(--blue)}a{color:var(--blue);text-decoration:none;font-weight:700}.submit{width:100%;border:0;border-radius:11px;padding:13px 16px;background:var(--blue);color:#fff;font:inherit;font-weight:750;cursor:pointer;box-shadow:0 7px 16px #3568e82b;transition:background .2s,transform .2s}.submit:hover{background:var(--blue2);transform:translateY(-1px)}.divider{display:flex;align-items:center;gap:12px;color:#9aa3b3;font-size:11px;margin:21px 0}.divider:before,.divider:after{content:"";height:1px;background:var(--line);flex:1}.alt-button{width:100%;border:1px solid var(--line);background:#fff;color:#39445a;border-radius:11px;padding:12px;font:inherit;font-size:13px;font-weight:700;cursor:pointer}.signup{margin:23px 0 0;text-align:center;color:var(--muted);font-size:13px}.secure-note{display:flex;justify-content:center;gap:7px;align-items:center;color:#8b95a7;font-size:11px;margin-top:17px}
-.footer{max-width:1120px;margin:0 auto;padding:0 24px 23px;display:flex;justify-content:space-between;gap:15px;color:#98a0af;font-size:11px}.footer a{color:#7b879b}
-.overlay{position:fixed;inset:0;background:#131a2a80;backdrop-filter:blur(7px);display:none;align-items:center;justify-content:center;padding:20px;z-index:10}.overlay.show{display:flex}.modal{width:min(100%,470px);background:#fff;border-radius:22px;padding:30px;box-shadow:0 30px 100px #11182740}.result-icon{width:48px;height:48px;border-radius:15px;background:#e9f8f1;color:#19865b;display:grid;place-items:center;font-size:23px;margin-bottom:18px}.modal h2{font-size:26px;margin-bottom:10px}.modal p{color:#5d687c;line-height:1.7;font-size:14px}.lesson{background:#f4f7ff;border:1px solid #e0e8ff;border-radius:13px;padding:14px;margin:17px 0}.lesson strong{font-size:13px}.lesson ul{padding-left:18px;margin:8px 0 0;color:#53617a;font-size:13px}.close{margin-top:8px}
-@media(max-width:900px){main{grid-template-columns:1fr;gap:34px;padding-top:42px;max-width:600px}.hero{text-align:center}.intro{margin:0 auto}.feature-grid{margin:30px auto 0;text-align:left}.social-proof{justify-content:center}.login-wrap{justify-self:center}.topbar{padding:0 20px}.footer{max-width:600px}}
-@media(max-width:480px){.topnote{font-size:10px;padding:6px 8px}.topbar{height:60px}.brand{font-size:20px}main{padding:34px 16px 30px;min-height:auto}h1{font-size:41px;letter-spacing:-2px}.intro{font-size:15px}.feature-grid{gap:8px}.feature{padding:12px}.login-card{padding:23px 20px;border-radius:19px}.footer{padding:0 16px 20px;flex-direction:column;text-align:center}.social-proof{font-size:12px}}
+:root{--blue:#1877f2;--bg:#f0f2f5;--ink:#1c1e21;--muted:#606770;--line:#dddfe2;--white:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.35 Helvetica,Arial,sans-serif;min-height:100vh}
+.training{position:sticky;top:0;z-index:5;background:#fff3cd;border-bottom:1px solid #e6d18b;color:#664d03;text-align:center;padding:9px 14px;font-size:12px;font-weight:700;letter-spacing:.1px}
+main{min-height:calc(100vh - 80px);max-width:980px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr;align-items:center;gap:48px;padding:38px 18px 70px}
+.intro{padding-bottom:50px}.wordmark{font-size:56px;line-height:1.1;font-weight:800;letter-spacing:-2.5px;color:var(--blue);margin:0 0 16px}.intro h1{font-size:28px;line-height:1.2;font-weight:400;letter-spacing:-.4px;max-width:500px;margin:0}.intro p{font-size:14px;color:var(--muted);margin-top:18px;max-width:460px;line-height:1.5}
+.panel-wrap{width:100%;max-width:396px;justify-self:center}.login-card{background:var(--white);padding:16px 16px 22px;border-radius:8px;box-shadow:0 2px 4px #0000001a,0 8px 16px #0000001a;text-align:center}
+.field{width:100%;padding:14px 16px;border:1px solid var(--line);border-radius:6px;font:17px Helvetica,Arial,sans-serif;margin-bottom:12px;outline:none;color:var(--ink)}.field:focus{border-color:var(--blue);box-shadow:0 0 0 2px #e7f3ff}.field::placeholder{color:#90949c}
+.password-wrap{position:relative}.password-wrap .field{padding-right:70px}.toggle{position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:0;color:var(--blue);font-size:12px;font-weight:700;cursor:pointer}
+.login{display:block;width:100%;border:0;border-radius:6px;background:var(--blue);color:white;padding:12px 16px;font-size:20px;font-weight:700;cursor:pointer;margin:2px 0 14px}.login:hover{background:#166fe5}.forgot{display:inline-block;color:var(--blue);text-decoration:none;font-size:14px;margin:1px 0 18px}.forgot:hover{text-decoration:underline}.rule{height:1px;background:var(--line);margin:0 0 18px}.create{display:inline-block;background:#42b72a;color:white;border:0;border-radius:6px;padding:12px 17px;font-size:16px;font-weight:700;cursor:pointer}.create:hover{background:#36a420}.fineprint{font-size:12px;color:var(--muted);text-align:center;margin-top:24px;line-height:1.5}.fineprint strong{color:var(--ink)}
+footer{background:#fff;border-top:1px solid #dddfe2;padding:22px 18px;color:#737373;font-size:12px;text-align:center}footer a{color:#606770}
+.overlay{position:fixed;inset:0;background:#1c1e21a6;display:none;align-items:center;justify-content:center;padding:18px;z-index:10}.overlay.show{display:flex}.modal{width:min(100%,470px);background:white;border-radius:10px;padding:26px;box-shadow:0 12px 40px #0003}.badge{display:inline-block;background:#e7f3ff;color:#0b57a4;border-radius:4px;padding:6px 9px;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.5px}.modal h2{font-size:24px;margin:15px 0 8px}.modal p{color:#606770;font-size:14px;line-height:1.6}.lesson{background:#f0f2f5;border-radius:7px;padding:14px 16px;margin:16px 0;font-size:13px;line-height:1.6}.lesson ul{margin:8px 0 0;padding-left:19px}.close{width:100%;border:0;border-radius:6px;background:var(--blue);color:white;padding:11px;font-weight:700;font-size:15px;cursor:pointer}
+@media(max-width:760px){main{grid-template-columns:1fr;gap:26px;max-width:430px;padding:36px 16px 45px;align-content:start}.intro{text-align:center;padding:0}.wordmark{font-size:48px;margin-bottom:12px}.intro h1{font-size:22px}.intro p{margin:12px auto 0}.panel-wrap{max-width:396px}.fineprint{margin-top:17px}footer{padding-bottom:25px}}
+@media(max-width:380px){.wordmark{font-size:42px}.intro h1{font-size:20px}.login-card{padding:14px 12px 19px}.field{font-size:16px;padding:13px}}
 </style>
 </head>
 <body>
-<header class="topbar"><div class="brand"><span class="brandmark" aria-hidden="true">↗</span>loop</div><div class="topnote">PhishLab · Awareness simulation</div></header>
+<div class="training" role="note">PHISHLAB TRAINING SIMULATION — fictional interface for security awareness; never enter a real password.</div>
 <main>
-<section class="hero">
-<div class="eyebrow"><span class="dot"></span> A safer social experience</div>
-<h1>Your people.<br>Your moments.<br><span>Your space.</span></h1>
-<p class="intro">Catch up with friends, share what inspires you, and stay connected to the communities that make your day.</p>
-<div class="social-proof"><div class="avatars" aria-hidden="true"><span class="avatar">AM</span><span class="avatar">JL</span><span class="avatar">SK</span><span class="avatar">RD</span></div><span>A little closer, wherever life takes you.</span></div>
-<div class="feature-grid"><div class="feature"><div class="feature-icon">✦</div><strong>Made for your circle</strong><small>Keep up with your community.</small></div><div class="feature"><div class="feature-icon">◈</div><strong>Your privacy matters</strong><small>Stay mindful of where you sign in.</small></div></div>
+<section class="intro">
+  <div class="wordmark" aria-label="Social">social</div>
+  <h1>Connect with friends and the world around you.</h1>
+  <p>This demonstration recreates common social-network sign-in patterns so you can learn to check links and domains before logging in.</p>
 </section>
-<section class="login-wrap" aria-label="Loop sign in">
-<div class="login-card">
-<div class="card-brand"><span class="brandmark" aria-hidden="true">↗</span><div><strong>Welcome back</strong><small>Sign in to your Loop account</small></div></div>
-<h2>Good to see you.</h2><p class="subhead">Enter your details to continue.</p>
-<form id="loginForm" autocomplete="off">
-<div class="field"><label for="username">Email or username</label><input class="input" id="username" name="username" type="text" placeholder="you@example.com" autocomplete="off" required maxlength="120"></div>
-<div class="field"><label for="password">Password</label><div class="input-wrap"><input class="input" id="password" name="password" type="password" placeholder="Enter your password" autocomplete="new-password" required maxlength="128"><button class="password-toggle" type="button" id="togglePassword" aria-label="Show password">Show</button></div></div>
-<div class="row-between"><label class="remember"><input type="checkbox" id="remember"> Remember me</label><a href="#" id="forgotLink">Forgot password?</a></div>
-<button class="submit" type="submit">Sign in</button>
-<div class="divider">OR</div><button class="alt-button" type="button" id="demoButton">Continue with a demo account</button>
-<p class="signup">New to Loop? <a href="#" id="signupLink">Create an account</a></p>
-</form>
-</div>
-<div class="secure-note"><span>♧</span> PhishLab training demo · No passwords are saved or sent</div>
+<section class="panel-wrap" aria-label="Training sign-in form">
+  <div class="login-card">
+    <form id="loginForm" autocomplete="off">
+      <input class="field" id="username" name="username" type="text" placeholder="Email address or phone number" aria-label="Demo email address or phone number" autocomplete="off" maxlength="120" required>
+      <div class="password-wrap"><input class="field" id="password" name="password" type="password" placeholder="Password (use fake text only)" aria-label="Demo password" autocomplete="new-password" maxlength="128" required><button class="toggle" type="button" id="toggle">Show</button></div>
+      <button class="login" type="submit">Log in</button>
+      <a class="forgot" href="#forgot" id="forgot">Forgot password?</a>
+      <div class="rule"></div>
+      <button class="create" type="button" id="create">Create new account</button>
+    </form>
+  </div>
+  <p class="fineprint"><strong>PhishLab learning demo</strong><br>Not affiliated with or endorsed by Facebook or Meta. No credentials are saved or sent.</p>
 </section>
 </main>
-<footer class="footer"><span>© 2026 Loop Social · Fictional training interface</span><span>Built for security awareness · <a href="https://github.com/AlphaOshyy/PhishLab">PhishLab project</a></span></footer>
-<div class="overlay" id="resultOverlay" role="dialog" aria-modal="true" aria-labelledby="resultTitle">
-<div class="modal"><div class="result-icon">✓</div><h2 id="resultTitle">This was a simulation.</h2><p id="resultMessage">You interacted with a fictional social sign-in page built for security awareness training.</p><div class="lesson"><strong>Three checks before you sign in</strong><ul><li>Inspect the full domain, not just the page design.</li><li>Open the service from a saved bookmark or official app.</li><li>Never enter a password after an unexpected message or link.</li></ul></div><p id="eventSummary">This demo records only that a simulation was completed and the time. It does not save or transmit the text entered into either field.</p><button class="submit close" id="closeModal" type="button">Back to demo</button></div>
+<footer>PhishLab · Authorized awareness practice · <a href="https://github.com/AlphaOshyy/PhishLab">View source on GitHub</a></footer>
+<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal"><span class="badge">Training complete</span><h2 id="modalTitle">Pause before you log in.</h2><p>You interacted with a fictional sign-in simulation. Real phishing pages often copy familiar layouts to make a request feel trustworthy.</p><div class="lesson"><strong>Before entering credentials:</strong><ul><li>Check the complete website domain in the address bar.</li><li>Open the service using its official app or a saved bookmark.</li><li>Be suspicious of urgent links sent by email, text, or direct message.</li></ul></div><p id="status">Only a generic completion event and timestamp are stored in this browser session. The values typed into the fields are never read, saved, or transmitted.</p><button class="close" id="close" type="button">Return to simulation</button></div>
 </div>
 <script>
 (() => {
   const form = document.getElementById('loginForm');
-  const password = document.getElementById('password');
-  const overlay = document.getElementById('resultOverlay');
-  const username = document.getElementById('username');
-  const toggle = document.getElementById('togglePassword');
-  const eventSummary = document.getElementById('eventSummary');
-  toggle.addEventListener('click', () => {
-    const show = password.type === 'password';
-    password.type = show ? 'text' : 'password';
-    toggle.textContent = show ? 'Hide' : 'Show';
-    toggle.setAttribute('aria-label', show ? 'Hide password' : 'Show password');
-  });
-  function showLesson(source) {
-    const record = { event: 'simulation_completed', source, timestamp: new Date().toISOString() };
+  const user = document.getElementById('username');
+  const pass = document.getElementById('password');
+  const overlay = document.getElementById('overlay');
+  function complete(source) {
+    const event = {event:'simulation_completed',source,timestamp:new Date().toISOString()};
     try {
-      const old = JSON.parse(sessionStorage.getItem('phishlab_events') || '[]');
-      old.push(record);
-      sessionStorage.setItem('phishlab_events', JSON.stringify(old.slice(-20)));
+      const events = JSON.parse(sessionStorage.getItem('phishlab_events') || '[]');
+      events.push(event);
+      sessionStorage.setItem('phishlab_events', JSON.stringify(events.slice(-20)));
     } catch (_) {}
-    eventSummary.textContent = 'Recorded locally for this browser session: simulation completed at ' + new Date(record.timestamp).toLocaleString() + '. No username or password values were recorded or transmitted.';
+    document.getElementById('status').textContent = 'Generic event recorded locally for this browser session at ' + new Date(event.timestamp).toLocaleString() + '. No field values were read, saved, or sent.';
+    user.value = '';
+    pass.value = '';
     overlay.classList.add('show');
-    document.getElementById('closeModal').focus();
+    document.getElementById('close').focus();
   }
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    // Deliberately never read either field's value, and never send form data anywhere.
-    password.value = '';
-    username.value = '';
-    document.getElementById('remember').checked = false;
-    showLesson('sign_in_form');
+  document.getElementById('toggle').addEventListener('click', () => {
+    const visible = pass.type === 'password';
+    pass.type = visible ? 'text' : 'password';
+    document.getElementById('toggle').textContent = visible ? 'Hide' : 'Show';
   });
-  document.getElementById('demoButton').addEventListener('click', () => showLesson('demo_button'));
-  document.getElementById('forgotLink').addEventListener('click', e => { e.preventDefault(); showLesson('forgot_password_link'); });
-  document.getElementById('signupLink').addEventListener('click', e => { e.preventDefault(); showLesson('create_account_link'); });
-  document.getElementById('closeModal').addEventListener('click', () => overlay.classList.remove('show'));
+  form.addEventListener('submit', e => { e.preventDefault(); complete('login_form'); });
+  document.getElementById('forgot').addEventListener('click', e => { e.preventDefault(); complete('forgot_link'); });
+  document.getElementById('create').addEventListener('click', () => complete('create_account_button'));
+  document.getElementById('close').addEventListener('click', () => overlay.classList.remove('show'));
   overlay.addEventListener('click', e => { if (e.target === overlay) overlay.classList.remove('show'); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') overlay.classList.remove('show'); });
 })();
